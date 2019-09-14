@@ -1,0 +1,18 @@
+//Nuestro primer contrato es un faucet :)
+contract Faucet {
+
+  // Vamos a entregar Ethers a cualquiera que lo pida
+  function withdraw(uint withdraw_amount) public {
+    
+    // Limitamos el monto a entregar
+    require(withdraw_amount <=100000000000000000);
+    
+    // Enviamos el monto a la direccion que lo solicito
+    msg.sender.transfer(withdraw_amount);
+    
+  }
+  
+  // Aceptamos Ethers de cualquier fuente
+  function () public payable {}
+  
+}
